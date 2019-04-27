@@ -61,6 +61,7 @@ int main () {
         }
  
     }while(a.contador < 100000);
- 
+
+    pthread_exit(NULL);
     exit(0);
 }
