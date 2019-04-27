@@ -38,14 +38,24 @@ int main () {
     n = n-1;
  
     pthread_t threads[n];
+    int teste;
     ARG a;
+
+    int rc;
  
     do{
  
         for(a.i=0; a.i<=n; a.i++){
 
             if(a.contador < 100000) { 
-            pthread_create(&threads[a.i], NULL, function, (void *)(&a));
+
+            rc = pthread_create(&threads[a.i], NULL, function, (void *)(&a));
+
+                if (rc){         
+                    printf("ERRO; código de retorno é %d\n", rc);         
+                    exit(-1); 
+                }    
+            
             }
  
         }
